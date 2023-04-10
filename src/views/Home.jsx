@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PostCard from '../components/PostCard';
 
-export default function Home() {
+export default function Home({ user }) {
 
     const [posts, setPosts] = useState([]);
 
@@ -17,7 +17,7 @@ export default function Home() {
     return (
         <div className='row'>
             <div className="col-12 col-lg-8 order-1 order-lg-1">
-                {posts.map( post => <PostCard key={post.id} post={post} />)}
+                {posts.map( post => <PostCard key={post.id} post={post} user={user} />)}
             </div>
 
             <div className="col-12 col-lg-4 order-0 order-lg-1">

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function PostCard({ post }) {
+export default function PostCard({ post, user }) {
     return (
         <>
             <div className="card mt-3">
@@ -16,7 +16,7 @@ export default function PostCard({ post }) {
                             <h6 className="card-subtitle text-muted">{ post.date_created }</h6>
                             <h6 className="card-subtitle">By: { post.author.username }</h6>
                             <p className="card-text">{ post.content }</p>
-                            { (post.author.username === 'username1') ? (
+                            { (post.author.username === user.username) ? (
                                 <>
                                     <a href="/" className="btn btn-success">Edit</a>
                                     <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target={`#deletePostModal-${ post.id }`}>
