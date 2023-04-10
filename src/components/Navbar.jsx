@@ -12,7 +12,7 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
                         <Link className="nav-link active" aria-current="page" to="/">Home</Link>
-                        <Link className="nav-link" to="/">Register</Link>
+                        <Link className="nav-link" to="/register">Register</Link>
                         <Link className="nav-link" to="/">Login</Link>
                     </div>
                 </div>
