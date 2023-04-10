@@ -3,7 +3,10 @@ import React from 'react'
 export default function PostCard({ post }) {
     return (
         <>
-            <div className="card mt-3 p-3">
+            <div className="card mt-3">
+                <div className="card-header">
+                { post.title }
+                </div>
                 <div className="row g-0">
                     <div className="col-md-4">
                         <img className="card-img-top" src={ post.image_url ? post.image_url : `https://picsum.photos/500?random=${Math.floor(Math.random() * 100)}` } alt="random" />
@@ -11,9 +14,8 @@ export default function PostCard({ post }) {
                     <div className="col-md-8">
                         <div className="card-body">
                             <h6 className="card-subtitle text-muted">{ post.date_created }</h6>
-                            <h5 className="card-title">{ post.title }</h5>
                             <h6 className="card-subtitle">By: { post.author.username }</h6>
-                            <p className="card-text">{ post.body }</p>
+                            <p className="card-text">{ post.content }</p>
                             { (post.author.username === 'username1') ? (
                                 <>
                                     <a href="/" className="btn btn-success">Edit</a>

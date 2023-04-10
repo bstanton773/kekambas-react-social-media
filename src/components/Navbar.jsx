@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Navbar() {
+export default function Navbar({ loggedIn, logUserOut}) {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
@@ -11,9 +11,18 @@ export default function Navbar() {
                 </button>
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <Link className="nav-link active" aria-current="page" to="/">Home</Link>
-                        <Link className="nav-link" to="/register">Register</Link>
-                        <Link className="nav-link" to="/">Login</Link>
+                        <Link className="nav-link" to="/">Home</Link>
+                        { loggedIn ? (
+                            <>
+                                <Link className="nav-link" to="/create">Create</Link>
+                                <Link className="nav-link" to="/" onClick={() => logUserOut()}>Logout</Link>
+                            </>
+                        ) : (
+                            <>
+                                <Link className="nav-link" to="/register">Register</Link>
+                                <Link className="nav-link" to="/login">Login</Link>
+                            </>
+                        )}
                     </div>
                 </div>
             </div>
