@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function PostCard({ post, user }) {
     return (
@@ -18,33 +19,14 @@ export default function PostCard({ post, user }) {
                             <p className="card-text">{ post.content }</p>
                             { (post.author.username === user.username) ? (
                                 <>
-                                    <a href="/" className="btn btn-success">Edit</a>
-                                    <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target={`#deletePostModal-${ post.id }`}>
-                                        Delete
-                                    </button>  
+                                    <Link to={`/edit/${post.id}`} className="btn btn-success w-100">Edit</Link>
                                 </>
                             ): null}
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="modal fade" id={`deletePostModal-${ post.id }`} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h1 className="modal-title fs-5" id="exampleModalLabel">Delete { post.title }?</h1>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                        Are you sure you want to delete { post.title }? This action cannot be undone.
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <a href="/" className="btn btn-danger">Delete Post</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </>
     )
 }

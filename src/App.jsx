@@ -6,6 +6,7 @@ import Register from './views/Register';
 import AlertMessage from './components/AlertMessage';
 import Navbar from './components/Navbar';
 import Create from './views/Create';
+import EditPost from './views/EditPost';
 
 export default function App() {
 
@@ -64,6 +65,7 @@ export default function App() {
                     <Route path='/register' element={<Register flashMessage={flashMessage} />} />
                     <Route path='/login' element={<Login flashMessage={flashMessage} logUserIn={logUserIn}/>} />
                     <Route path='/create' element={<Create flashMessage={flashMessage} loggedIn={loggedIn} />} />
+                    <Route path='/edit/:postId' element={<EditPost flashMessage={flashMessage} loggedIn={loggedIn} />} />
                 </Routes>
             </div>
         </>
