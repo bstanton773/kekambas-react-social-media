@@ -47,6 +47,7 @@ export default function App() {
 
     function logUserOut(){
         setLoggedIn(false);
+        setUser({})
         localStorage.removeItem('token');
         // localStorage.removeItem('tokenExp');
         flashMessage('You have logged out', 'success')

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PostCard from '../components/PostCard';
+import Sidebar from '../components/Sidebar';
 
 export default function Home({ user, loggedIn }) {
 
@@ -30,33 +31,15 @@ export default function Home({ user, loggedIn }) {
             </div>
 
             <div className="col-12 col-lg-4 order-0 order-lg-1">
-
-                <div className="position-sticky top-0">
-                    <div className="card mt-3">
-                        <div className="card-header">Search</div>
-                        <div className="card-body">
-                            <form action="" method="post">
-                                <div className="input-group">
-                                    <input type="text" className='form-control' placeholder='Enter Search Term...' />
-                                    <input type='submit' className='btn btn-primary' value='Search' />
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div className="card mt-3">
-                        <div className="card-header">Page: {page + 1}</div>
-                        <div className="card-body">
-                            { page > 0 ? (<button className="btn btn-danger w-50" onClick={() => setPage(page - 1)}>Page Down</button>) : null }
-                            { posts.length >= lastPostIndex ? (<button className="btn btn-success w-50" onClick={() => setPage(page + 1)}>Page Up</button>) : null}
-                        </div>
-                    </div>
-                    <div className="card mt-3">
-                        <div className="card-body">
-                            <button className='btn btn-success w-100' onClick={() => setOnlyMine(!onlyMine)}>{ loggedIn && onlyMine ? "See All Posts" : "See Only My Posts" }</button>
-                        </div>
-                    </div>
-                </div>
-
+                <Sidebar 
+                    posts={posts} 
+                    page={page} 
+                    setPage={setPage} 
+                    onlyMine={onlyMine} 
+                    setOnlyMine={setOnlyMine}
+                    lastPostIndex={lastPostIndex}
+                    loggedIn={loggedIn}
+                />
             </div>
         </div>
     )
