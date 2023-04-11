@@ -59,7 +59,7 @@ export default function App() {
             <div className="container">
                 { message ? <AlertMessage flashMessage={flashMessage} message={message} category={category} /> : null}
                 <Routes >
-                    <Route path='/' element={<Home user={user} />} />
+                    <Route path='/' element={<Home user={user} loggedIn={loggedIn} />} />
                     <Route path='/register' element={<Register flashMessage={flashMessage} />} />
                     <Route path='/login' element={<Login flashMessage={flashMessage} logUserIn={logUserIn}/>} />
                     <Route path='/create' element={<Create flashMessage={flashMessage} loggedIn={loggedIn} />} />

@@ -9,7 +9,7 @@ export default function PostCard({ post, user }) {
                 </div>
                 <div className="row g-0">
                     <div className="col-md-4">
-                        <img className="card-img-top" src={ post.image_url ? post.image_url : `https://picsum.photos/500?random=${Math.floor(Math.random() * 100)}` } alt="random" />
+                        <img className="card-img-top" src={ post.image_url ? post.image_url : `https://picsum.photos/500?random=${post.id}` } alt="random" />
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
