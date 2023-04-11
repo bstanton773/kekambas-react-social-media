@@ -105,7 +105,7 @@ export default function EditPost( { loggedIn, flashMessage }) {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <Link to="/" className="btn btn-danger" onClick={deletePost}>Delete Post</Link>
+                            <Link to="/" className="btn btn-danger" onClick={deletePost} data-bs-dismiss="modal">Delete Post</Link>
                         </div>
                     </div>
                 </div>
